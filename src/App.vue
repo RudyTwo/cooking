@@ -1,30 +1,39 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <q-layout view="hHh lpr fff">
+
+    <q-header elevated class="bg-primary text-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+          </q-avatar>
+          Title
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-header>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+
+  </q-layout>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { ref } from 'vue'
+import HelloWorld from './components/HelloWorld.vue'
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'LayoutDefault',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    HelloWorld
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  setup () {
+    return {
+      leftDrawerOpen: ref(false)
+    }
+  }
 }
-</style>
+</script>
